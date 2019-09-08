@@ -125,7 +125,7 @@ namespace Minecraft_Server_Launcher
                             permissions.Remove(editObject.permission);
                             gridPermission.DataSource = permissions;
                             break;
-                        case "Player":
+                        case "Whitelist":
                             gridWhitelist.DataSource = typeof(Player);
                             players.Remove(editObject.player);
                             gridWhitelist.DataSource = players;
@@ -142,7 +142,25 @@ namespace Minecraft_Server_Launcher
             {
                 if (dlg.ShowDialog(this) == DialogResult.OK)
                 {
-
+                    editObject = dlg.editObject;
+                    switch (editObject.objType)
+                    {
+                        case "Permission":
+                            gridPermission.DataSource = typeof(Permission);
+                            permissions.Add(editObject.permission);
+                            gridPermission.DataSource = permissions;
+                            break;
+                        case "Whitelist":
+                            gridWhitelist.DataSource = typeof(Player);
+                            players.Add(editObject.player);
+                            gridWhitelist.DataSource = players;
+                            break;
+                        case "Packs":
+                            gridPacks.DataSource = typeof(Pack);
+                            packs.Add(editObject.pack);
+                            gridPacks.DataSource = packs;
+                            break;
+                    }
                 }
             }
         }

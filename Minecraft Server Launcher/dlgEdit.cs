@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minecraft_Server_Launcher
@@ -30,7 +22,7 @@ namespace Minecraft_Server_Launcher
                     cboPermission.SelectedItem = editObject.permission.permission;
                     txtPermissionXUID.Text = editObject.permission.xuid;
                     break;
-                case "Player":
+                case "Whitelist":
                     panelPlayer.BringToFront();
                     txtPlayerXUID.Text = editObject.player.xuid;
                     txtPlayerName.Text = editObject.player.name;
@@ -54,7 +46,25 @@ namespace Minecraft_Server_Launcher
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-
+            switch (editObject.objType)
+            {
+                case "Permission":
+                    editObject.permission.permission = (string)cboPermission.SelectedItem;
+                    editObject.permission.xuid = txtPermissionXUID.Text;
+                    break;
+                case "Whitelist":
+                    editObject.player.xuid = txtPlayerXUID.Text;
+                    editObject.player.name = txtPlayerName.Text;
+                    editObject.player.ignoresPlayerLimit = chkPlayerIgnorePlayerLimit.Checked;
+                    break;
+                case "Packs":
+                    editObject.pack.file_system = txtPackFileSystem.Text;
+                    editObject.pack.file_version = txtPackFileVersion.Text;
+                    editObject.pack.path = txtPackPath.Text;
+                    editObject.pack.uuid = txtPackUUID.Text;
+                    editObject.pack.version = txtPackVersion.Text;
+                    break;
+            }
         }
     }
 }

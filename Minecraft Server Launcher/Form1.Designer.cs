@@ -60,13 +60,10 @@
             this.cboPermission = new System.Windows.Forms.ComboBox();
             this.chkTexturePackRequired = new System.Windows.Forms.CheckBox();
             this.chkLogFileEnabled = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.gridPermission = new System.Windows.Forms.DataGridView();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label15 = new System.Windows.Forms.Label();
             this.gridWhitelist = new System.Windows.Forms.DataGridView();
             this.btnSaveAndStart = new System.Windows.Forms.Button();
             this.cboLevelType = new System.Windows.Forms.ComboBox();
@@ -75,7 +72,11 @@
             this.btnStopServer = new System.Windows.Forms.Button();
             this.txtServerOutput = new System.Windows.Forms.TextBox();
             this.gridPacks = new System.Windows.Forms.DataGridView();
-            this.label17 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPlayerPermissions = new System.Windows.Forms.TabPage();
+            this.tabWhitelist = new System.Windows.Forms.TabPage();
+            this.gridPermission = new System.Windows.Forms.DataGridView();
+            this.tabPacks = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxPlayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPortV6)).BeginInit();
@@ -83,10 +84,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTickDistance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIdleTimeout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxThreads)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).BeginInit();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridWhitelist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacks)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPlayerPermissions.SuspendLayout();
+            this.tabWhitelist.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).BeginInit();
+            this.tabPacks.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -449,33 +454,6 @@
             this.chkLogFileEnabled.Text = "Log File Enabled";
             this.chkLogFileEnabled.UseVisualStyleBackColor = true;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(350, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(79, 13);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Permission List:";
-            // 
-            // gridPermission
-            // 
-            this.gridPermission.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridPermission.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridPermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPermission.ContextMenuStrip = this.contextMenu;
-            this.gridPermission.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.gridPermission.Location = new System.Drawing.Point(353, 25);
-            this.gridPermission.MultiSelect = false;
-            this.gridPermission.Name = "gridPermission";
-            this.gridPermission.ReadOnly = true;
-            this.gridPermission.RowHeadersVisible = false;
-            this.gridPermission.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPermission.Size = new System.Drawing.Size(342, 96);
-            this.gridPermission.TabIndex = 32;
-            this.gridPermission.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
-            // 
             // contextMenu
             // 
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -506,30 +484,20 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.ContextMenuToolStripMenuItem_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(349, 124);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 13);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Whitelist:";
-            // 
             // gridWhitelist
             // 
-            this.gridWhitelist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridWhitelist.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridWhitelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridWhitelist.ContextMenuStrip = this.contextMenu;
+            this.gridWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridWhitelist.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.gridWhitelist.Location = new System.Drawing.Point(353, 140);
+            this.gridWhitelist.Location = new System.Drawing.Point(3, 3);
             this.gridWhitelist.MultiSelect = false;
             this.gridWhitelist.Name = "gridWhitelist";
             this.gridWhitelist.ReadOnly = true;
             this.gridWhitelist.RowHeadersVisible = false;
             this.gridWhitelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridWhitelist.Size = new System.Drawing.Size(342, 96);
+            this.gridWhitelist.Size = new System.Drawing.Size(333, 455);
             this.gridWhitelist.TabIndex = 34;
             this.gridWhitelist.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
             // 
@@ -599,48 +567,95 @@
             // 
             // gridPacks
             // 
-            this.gridPacks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPacks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridPacks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPacks.ContextMenuStrip = this.contextMenu;
+            this.gridPacks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridPacks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.gridPacks.Location = new System.Drawing.Point(353, 255);
+            this.gridPacks.Location = new System.Drawing.Point(0, 0);
             this.gridPacks.MultiSelect = false;
             this.gridPacks.Name = "gridPacks";
             this.gridPacks.ReadOnly = true;
             this.gridPacks.RowHeadersVisible = false;
             this.gridPacks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPacks.Size = new System.Drawing.Size(342, 96);
+            this.gridPacks.Size = new System.Drawing.Size(352, 313);
             this.gridPacks.TabIndex = 42;
             this.gridPacks.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
             // 
-            // label17
+            // tabControl1
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(350, 239);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 13);
-            this.label17.TabIndex = 41;
-            this.label17.Text = "Valid known packs:";
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPlayerPermissions);
+            this.tabControl1.Controls.Add(this.tabWhitelist);
+            this.tabControl1.Controls.Add(this.tabPacks);
+            this.tabControl1.Location = new System.Drawing.Point(335, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(360, 339);
+            this.tabControl1.TabIndex = 43;
+            // 
+            // tabPlayerPermissions
+            // 
+            this.tabPlayerPermissions.Controls.Add(this.gridPermission);
+            this.tabPlayerPermissions.Location = new System.Drawing.Point(4, 22);
+            this.tabPlayerPermissions.Name = "tabPlayerPermissions";
+            this.tabPlayerPermissions.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlayerPermissions.Size = new System.Drawing.Size(352, 313);
+            this.tabPlayerPermissions.TabIndex = 0;
+            this.tabPlayerPermissions.Text = "Player Permissions";
+            this.tabPlayerPermissions.UseVisualStyleBackColor = true;
+            // 
+            // tabWhitelist
+            // 
+            this.tabWhitelist.Controls.Add(this.gridWhitelist);
+            this.tabWhitelist.Location = new System.Drawing.Point(4, 22);
+            this.tabWhitelist.Name = "tabWhitelist";
+            this.tabWhitelist.Padding = new System.Windows.Forms.Padding(3);
+            this.tabWhitelist.Size = new System.Drawing.Size(339, 461);
+            this.tabWhitelist.TabIndex = 1;
+            this.tabWhitelist.Text = "Whitelist";
+            this.tabWhitelist.UseVisualStyleBackColor = true;
+            // 
+            // gridPermission
+            // 
+            this.gridPermission.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridPermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPermission.ContextMenuStrip = this.contextMenu;
+            this.gridPermission.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPermission.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.gridPermission.Location = new System.Drawing.Point(3, 3);
+            this.gridPermission.MultiSelect = false;
+            this.gridPermission.Name = "gridPermission";
+            this.gridPermission.ReadOnly = true;
+            this.gridPermission.RowHeadersVisible = false;
+            this.gridPermission.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridPermission.Size = new System.Drawing.Size(346, 307);
+            this.gridPermission.TabIndex = 32;
+            this.gridPermission.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
+            // 
+            // tabPacks
+            // 
+            this.tabPacks.Controls.Add(this.gridPacks);
+            this.tabPacks.Location = new System.Drawing.Point(4, 22);
+            this.tabPacks.Name = "tabPacks";
+            this.tabPacks.Size = new System.Drawing.Size(352, 313);
+            this.tabPacks.TabIndex = 2;
+            this.tabPacks.Text = "Packs";
+            this.tabPacks.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 548);
-            this.Controls.Add(this.gridPacks);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txtServerOutput);
             this.Controls.Add(this.btnStopServer);
             this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.cboLevelType);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnSaveAndStart);
-            this.Controls.Add(this.gridWhitelist);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.gridPermission);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.chkLogFileEnabled);
             this.Controls.Add(this.chkTexturePackRequired);
             this.Controls.Add(this.label13);
@@ -681,10 +696,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTickDistance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIdleTimeout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxThreads)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).EndInit();
             this.contextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridWhitelist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPacks)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPlayerPermissions.ResumeLayout(false);
+            this.tabWhitelist.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).EndInit();
+            this.tabPacks.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -723,9 +742,6 @@
         private System.Windows.Forms.ComboBox cboPermission;
         private System.Windows.Forms.CheckBox chkTexturePackRequired;
         private System.Windows.Forms.CheckBox chkLogFileEnabled;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView gridPermission;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView gridWhitelist;
         private System.Windows.Forms.Button btnSaveAndStart;
         private System.Windows.Forms.ComboBox cboLevelType;
@@ -734,11 +750,15 @@
         private System.Windows.Forms.Button btnStopServer;
         private System.Windows.Forms.TextBox txtServerOutput;
         private System.Windows.Forms.DataGridView gridPacks;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPlayerPermissions;
+        private System.Windows.Forms.DataGridView gridPermission;
+        private System.Windows.Forms.TabPage tabWhitelist;
+        private System.Windows.Forms.TabPage tabPacks;
     }
 }
 
