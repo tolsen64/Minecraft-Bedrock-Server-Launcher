@@ -74,9 +74,15 @@
             this.gridPacks = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPlayerPermissions = new System.Windows.Forms.TabPage();
-            this.tabWhitelist = new System.Windows.Forms.TabPage();
             this.gridPermission = new System.Windows.Forms.DataGridView();
+            this.tabWhitelist = new System.Windows.Forms.TabPage();
             this.tabPacks = new System.Windows.Forms.TabPage();
+            this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.gridPlayers = new System.Windows.Forms.DataGridView();
+            this.contextMenuPlayers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.opToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxPlayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPortV6)).BeginInit();
@@ -89,9 +95,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPacks)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPlayerPermissions.SuspendLayout();
-            this.tabWhitelist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).BeginInit();
+            this.tabWhitelist.SuspendLayout();
             this.tabPacks.SuspendLayout();
+            this.tabPlayers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPlayers)).BeginInit();
+            this.contextMenuPlayers.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -497,7 +506,7 @@
             this.gridWhitelist.ReadOnly = true;
             this.gridWhitelist.RowHeadersVisible = false;
             this.gridWhitelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridWhitelist.Size = new System.Drawing.Size(333, 455);
+            this.gridWhitelist.Size = new System.Drawing.Size(346, 307);
             this.gridWhitelist.TabIndex = 34;
             this.gridWhitelist.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
             // 
@@ -510,6 +519,7 @@
             this.btnSaveAndStart.TabIndex = 35;
             this.btnSaveAndStart.Text = "Start Server";
             this.btnSaveAndStart.UseVisualStyleBackColor = true;
+            this.btnSaveAndStart.Click += new System.EventHandler(this.BtnSaveAndStart_Click);
             // 
             // cboLevelType
             // 
@@ -542,6 +552,7 @@
             this.btnSaveConfig.TabIndex = 38;
             this.btnSaveConfig.Text = "Save Config";
             this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.BtnSaveConfig_Click);
             // 
             // btnStopServer
             // 
@@ -552,6 +563,7 @@
             this.btnStopServer.TabIndex = 39;
             this.btnStopServer.Text = "Stop Server";
             this.btnStopServer.UseVisualStyleBackColor = true;
+            this.btnStopServer.Click += new System.EventHandler(this.BtnStopServer_Click);
             // 
             // txtServerOutput
             // 
@@ -589,6 +601,7 @@
             this.tabControl1.Controls.Add(this.tabPlayerPermissions);
             this.tabControl1.Controls.Add(this.tabWhitelist);
             this.tabControl1.Controls.Add(this.tabPacks);
+            this.tabControl1.Controls.Add(this.tabPlayers);
             this.tabControl1.Location = new System.Drawing.Point(335, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -605,17 +618,6 @@
             this.tabPlayerPermissions.TabIndex = 0;
             this.tabPlayerPermissions.Text = "Player Permissions";
             this.tabPlayerPermissions.UseVisualStyleBackColor = true;
-            // 
-            // tabWhitelist
-            // 
-            this.tabWhitelist.Controls.Add(this.gridWhitelist);
-            this.tabWhitelist.Location = new System.Drawing.Point(4, 22);
-            this.tabWhitelist.Name = "tabWhitelist";
-            this.tabWhitelist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWhitelist.Size = new System.Drawing.Size(339, 461);
-            this.tabWhitelist.TabIndex = 1;
-            this.tabWhitelist.Text = "Whitelist";
-            this.tabWhitelist.UseVisualStyleBackColor = true;
             // 
             // gridPermission
             // 
@@ -634,6 +636,17 @@
             this.gridPermission.TabIndex = 32;
             this.gridPermission.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
             // 
+            // tabWhitelist
+            // 
+            this.tabWhitelist.Controls.Add(this.gridWhitelist);
+            this.tabWhitelist.Location = new System.Drawing.Point(4, 22);
+            this.tabWhitelist.Name = "tabWhitelist";
+            this.tabWhitelist.Padding = new System.Windows.Forms.Padding(3);
+            this.tabWhitelist.Size = new System.Drawing.Size(352, 313);
+            this.tabWhitelist.TabIndex = 1;
+            this.tabWhitelist.Text = "Whitelist";
+            this.tabWhitelist.UseVisualStyleBackColor = true;
+            // 
             // tabPacks
             // 
             this.tabPacks.Controls.Add(this.gridPacks);
@@ -643,6 +656,63 @@
             this.tabPacks.TabIndex = 2;
             this.tabPacks.Text = "Packs";
             this.tabPacks.UseVisualStyleBackColor = true;
+            // 
+            // tabPlayers
+            // 
+            this.tabPlayers.Controls.Add(this.gridPlayers);
+            this.tabPlayers.Location = new System.Drawing.Point(4, 22);
+            this.tabPlayers.Name = "tabPlayers";
+            this.tabPlayers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlayers.Size = new System.Drawing.Size(352, 313);
+            this.tabPlayers.TabIndex = 3;
+            this.tabPlayers.Text = "Players";
+            this.tabPlayers.UseVisualStyleBackColor = true;
+            // 
+            // gridPlayers
+            // 
+            this.gridPlayers.AllowUserToAddRows = false;
+            this.gridPlayers.AllowUserToDeleteRows = false;
+            this.gridPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPlayers.ContextMenuStrip = this.contextMenuPlayers;
+            this.gridPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridPlayers.Location = new System.Drawing.Point(3, 3);
+            this.gridPlayers.Name = "gridPlayers";
+            this.gridPlayers.ReadOnly = true;
+            this.gridPlayers.RowHeadersVisible = false;
+            this.gridPlayers.Size = new System.Drawing.Size(346, 307);
+            this.gridPlayers.TabIndex = 0;
+            this.gridPlayers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Grid_MouseDown);
+            // 
+            // contextMenuPlayers
+            // 
+            this.contextMenuPlayers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opToolStripMenuItem,
+            this.deopToolStripMenuItem,
+            this.kickToolStripMenuItem});
+            this.contextMenuPlayers.Name = "contextMenuPlayers";
+            this.contextMenuPlayers.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuPlayers.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuPlayers_Opening);
+            // 
+            // opToolStripMenuItem
+            // 
+            this.opToolStripMenuItem.Name = "opToolStripMenuItem";
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.opToolStripMenuItem.Text = "op";
+            this.opToolStripMenuItem.Click += new System.EventHandler(this.OpToolStripMenuItem_Click);
+            // 
+            // deopToolStripMenuItem
+            // 
+            this.deopToolStripMenuItem.Name = "deopToolStripMenuItem";
+            this.deopToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deopToolStripMenuItem.Text = "deop";
+            this.deopToolStripMenuItem.Click += new System.EventHandler(this.DeopToolStripMenuItem_Click);
+            // 
+            // kickToolStripMenuItem
+            // 
+            this.kickToolStripMenuItem.Name = "kickToolStripMenuItem";
+            this.kickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kickToolStripMenuItem.Text = "kick";
+            this.kickToolStripMenuItem.Click += new System.EventHandler(this.KickToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -689,6 +759,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Minecraft (Bedrock) Server Launcher";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numMaxPlayers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numServerPortV6)).EndInit();
@@ -701,9 +772,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPacks)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPlayerPermissions.ResumeLayout(false);
-            this.tabWhitelist.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridPermission)).EndInit();
+            this.tabWhitelist.ResumeLayout(false);
             this.tabPacks.ResumeLayout(false);
+            this.tabPlayers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridPlayers)).EndInit();
+            this.contextMenuPlayers.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,6 +833,12 @@
         private System.Windows.Forms.DataGridView gridPermission;
         private System.Windows.Forms.TabPage tabWhitelist;
         private System.Windows.Forms.TabPage tabPacks;
+        private System.Windows.Forms.TabPage tabPlayers;
+        private System.Windows.Forms.DataGridView gridPlayers;
+        private System.Windows.Forms.ContextMenuStrip contextMenuPlayers;
+        private System.Windows.Forms.ToolStripMenuItem opToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kickToolStripMenuItem;
     }
 }
 
