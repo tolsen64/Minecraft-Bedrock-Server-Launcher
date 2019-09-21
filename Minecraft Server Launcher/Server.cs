@@ -19,7 +19,7 @@ namespace Minecraft_Server_Launcher
             permissions,
             save,
             stop,
-            whitelist,
+            whitelist
         }
 
         private Process process;
@@ -86,5 +86,23 @@ namespace Minecraft_Server_Launcher
         {
             StopServer();
         }
+
+        public static bool IsRunning()
+        {
+            return Process.GetProcessesByName("bedrock_server").Length > 0;
+        }
+
+        private Process GetServerProcess()
+        {
+            if (IsRunning())
+            {
+                return Process.GetProcessesByName("bedrock_server")[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

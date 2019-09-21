@@ -125,6 +125,12 @@ namespace Minecraft_Server_Launcher
             LoadPermissions();
             LoadWhitelist();
             LoadPacks();
+            if (Server.IsRunning())
+            {
+                txtServerOutput.AppendText($"Server is running.\r\n");
+                txtServerOutput.AppendText("Attaching to server process.\r\n");
+                svr = new Server(WriteServerOutput);
+            }           
         }
 
         private void LoadPermissions()
@@ -386,59 +392,65 @@ namespace Minecraft_Server_Launcher
 
         private void BtnStopServer_Click(object sender, EventArgs e)
         {
-            svr.SendCommand(Server.Commands.stop);
+            if (svr != null)
+            {
+                svr.SendCommand(Server.Commands.stop);
+            }
             svr = null;
         }
 
         private void WriteServerOutput(string txt)
         {
-            txtServerOutput.BeginInvoke((Action)(() =>
-            {
-                txtServerOutput.AppendText($"{txt}\r\n");
-                if (rx.IsMatch(txt))
-                {
-                    GroupCollection grp = rx.Match(txt).Groups;
-                    if (grp["action"].Value == "disconnected")
-                    {
-                        dt.Rows.OfType<DataRow>()
-                        .Where(r => r["xuid"].ToString() == grp["xuid"].Value)
-                        .FirstOrDefault()
-                        .Delete();
+            _ = txtServerOutput.BeginInvoke((Action)(() =>
+              {
+                  txtServerOutput.AppendText($"{txt}\r\n");
+                  if (rx.IsMatch(txt))
+                  {
+                      GroupCollection grp = rx.Match(txt).Groups;
+                      if (grp["action"].Value == "disconnected")
+                      {
+                          dt.Rows.OfType<DataRow>()
+                          .Where(r => r["xuid"].ToString() == grp["xuid"].Value)
+                          .FirstOrDefault()
+                          .Delete();
                         //.ToList()
                         //.ForEach(r => r.Delete());
                     }
-                    else if (grp["action"].Value == "connected")
-                    {
-                        Permission pm = new Permission()
-                        {
-                            permission = cboPermission.SelectedItem.ToString(),
-                            xuid = grp["xuid"].Value
-                        };
-                        if (!permissions.Any(perm => perm.xuid == pm.xuid))
-                        {
-                            permissions.Add(pm);
-                            gridPermission.DataSource = typeof(Permission);
-                            SavePermissions();
-                            gridPermission.DataSource = permissions;
-                        }
-                        string p = permissions.FirstOrDefault(perm => perm.xuid == pm.xuid).permission;
-                        bool w = players.Any(play => play.xuid == pm.xuid);
-                        bool i = w ? players.FirstOrDefault(play => play.name == grp["name"].Value).ignoresPlayerLimit : false;
-                        dt.Rows.Add(new object[] { grp["name"].Value, p, w, i, grp["xuid"].Value });
-                    }
-                }
-                else if (txt.Contains("De-opped:") || txt.Contains("Opped:"))
-                {
-                    //De-opped: PhysicalBean119
-                    //Opped: PhysicalBean119
-                    // TODO: change permission in Players grid when opped or de-opped.
+                      else if (grp["action"].Value == "connected")
+                      {
+                          Permission pm = new Permission()
+                          {
+                              name = grp["name"].Value,
+                              permission = cboPermission.SelectedItem.ToString(),
+                              xuid = grp["xuid"].Value
+                          };
+                          if (!permissions.Any(perm => perm.xuid == pm.xuid))
+                          {
+                              permissions.Add(pm);
+                              gridPermission.DataSource = typeof(Permission);
+                              SavePermissions();
+                              gridPermission.DataSource = permissions;
+                          }
+                          string p = permissions.FirstOrDefault(perm => perm.xuid == pm.xuid).permission;
+                          bool w = players.Any(play => play.xuid == pm.xuid);
+                          bool i = w ? players.FirstOrDefault(play => play.name == grp["name"].Value).ignoresPlayerLimit : false;
+                          dt.Rows.Add(new object[] { grp["name"].Value, p, w, i, grp["xuid"].Value });
+                      }
+                  }
+                  else if (txt.Contains("De-opped:") || txt.Contains("Opped:"))
+                  {
                     LoadPermissions();
-                }
-                else if (txt.Contains("whitelist"))
-                {
-                    LoadWhitelist();
-                }
-            }));
+
+                    dt.Rows.OfType<DataRow>()
+                      .Where(r => r["name"].ToString() == PlayerName)
+                      .FirstOrDefault()
+                      .SetField("permission", txt.Contains("Opped:") ? "operator" : cboPermission.SelectedItem.ToString());
+                  }
+                  else if (txt.Contains("whitelist"))
+                  {
+                      LoadWhitelist();
+                  }
+              }));
         }
 
         private void ContextMenuPlayers_Opening(object sender, System.ComponentModel.CancelEventArgs e)

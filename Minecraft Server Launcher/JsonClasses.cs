@@ -11,6 +11,7 @@
 
     public class Permission
     {
+        public string name { get; set; }
         public string permission { get; set; }
         public string xuid { get; set; }
     }

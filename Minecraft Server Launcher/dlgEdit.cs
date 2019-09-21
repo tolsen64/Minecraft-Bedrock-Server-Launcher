@@ -19,6 +19,7 @@ namespace Minecraft_Server_Launcher
             {
                 case "Permission":
                     panelPermission.BringToFront();
+                    txtPermissionName.Text = editObject.permission.name;
                     cboPermission.SelectedItem = editObject.permission.permission;
                     txtPermissionXUID.Text = editObject.permission.xuid;
                     break;
@@ -49,6 +50,7 @@ namespace Minecraft_Server_Launcher
             switch (editObject.objType)
             {
                 case "Permission":
+                    editObject.permission.name = txtPermissionName.Text;
                     editObject.permission.permission = (string)cboPermission.SelectedItem;
                     editObject.permission.xuid = txtPermissionXUID.Text;
                     break;

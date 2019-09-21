@@ -29,29 +29,31 @@
         private void InitializeComponent()
         {
             this.panelPermission = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtPermissionXUID = new System.Windows.Forms.TextBox();
             this.cboPermission = new System.Windows.Forms.ComboBox();
+            this.txtPermissionXUID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelPack = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPackFileVersion = new System.Windows.Forms.TextBox();
-            this.txtPackFileSystem = new System.Windows.Forms.TextBox();
-            this.txtPackPath = new System.Windows.Forms.TextBox();
-            this.txtPackUUID = new System.Windows.Forms.TextBox();
             this.txtPackVersion = new System.Windows.Forms.TextBox();
+            this.txtPackUUID = new System.Windows.Forms.TextBox();
+            this.txtPackPath = new System.Windows.Forms.TextBox();
+            this.txtPackFileSystem = new System.Windows.Forms.TextBox();
+            this.txtPackFileVersion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelPlayer = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPlayerName = new System.Windows.Forms.TextBox();
-            this.txtPlayerXUID = new System.Windows.Forms.TextBox();
             this.chkPlayerIgnorePlayerLimit = new System.Windows.Forms.CheckBox();
+            this.txtPlayerXUID = new System.Windows.Forms.TextBox();
+            this.txtPlayerName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPermissionName = new System.Windows.Forms.TextBox();
             this.panelPermission.SuspendLayout();
             this.panelPack.SuspendLayout();
             this.panelPlayer.SuspendLayout();
@@ -59,6 +61,8 @@
             // 
             // panelPermission
             // 
+            this.panelPermission.Controls.Add(this.txtPermissionName);
+            this.panelPermission.Controls.Add(this.label10);
             this.panelPermission.Controls.Add(this.cboPermission);
             this.panelPermission.Controls.Add(this.txtPermissionXUID);
             this.panelPermission.Controls.Add(this.label2);
@@ -68,31 +72,6 @@
             this.panelPermission.Size = new System.Drawing.Size(333, 145);
             this.panelPermission.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Permission:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "XUID:";
-            // 
-            // txtPermissionXUID
-            // 
-            this.txtPermissionXUID.Location = new System.Drawing.Point(69, 39);
-            this.txtPermissionXUID.Name = "txtPermissionXUID";
-            this.txtPermissionXUID.Size = new System.Drawing.Size(261, 20);
-            this.txtPermissionXUID.TabIndex = 3;
-            // 
             // cboPermission
             // 
             this.cboPermission.FormattingEnabled = true;
@@ -100,10 +79,35 @@
             "visitor",
             "member",
             "operator"});
-            this.cboPermission.Location = new System.Drawing.Point(69, 12);
+            this.cboPermission.Location = new System.Drawing.Point(69, 37);
             this.cboPermission.Name = "cboPermission";
             this.cboPermission.Size = new System.Drawing.Size(121, 21);
             this.cboPermission.TabIndex = 4;
+            // 
+            // txtPermissionXUID
+            // 
+            this.txtPermissionXUID.Location = new System.Drawing.Point(69, 64);
+            this.txtPermissionXUID.Name = "txtPermissionXUID";
+            this.txtPermissionXUID.Size = new System.Drawing.Size(261, 20);
+            this.txtPermissionXUID.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "XUID:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Permission:";
             // 
             // panelPack
             // 
@@ -122,41 +126,40 @@
             this.panelPack.Size = new System.Drawing.Size(333, 145);
             this.panelPack.TabIndex = 1;
             // 
-            // label3
+            // txtPackVersion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "File Version:";
+            this.txtPackVersion.Location = new System.Drawing.Point(73, 113);
+            this.txtPackVersion.Name = "txtPackVersion";
+            this.txtPackVersion.Size = new System.Drawing.Size(100, 20);
+            this.txtPackVersion.TabIndex = 9;
             // 
-            // label4
+            // txtPackUUID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Path:";
+            this.txtPackUUID.Location = new System.Drawing.Point(73, 87);
+            this.txtPackUUID.Name = "txtPackUUID";
+            this.txtPackUUID.Size = new System.Drawing.Size(257, 20);
+            this.txtPackUUID.TabIndex = 8;
             // 
-            // label5
+            // txtPackPath
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 38);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "File System:";
+            this.txtPackPath.Location = new System.Drawing.Point(73, 61);
+            this.txtPackPath.Name = "txtPackPath";
+            this.txtPackPath.Size = new System.Drawing.Size(257, 20);
+            this.txtPackPath.TabIndex = 7;
             // 
-            // label6
+            // txtPackFileSystem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "UUID:";
+            this.txtPackFileSystem.Location = new System.Drawing.Point(72, 35);
+            this.txtPackFileSystem.Name = "txtPackFileSystem";
+            this.txtPackFileSystem.Size = new System.Drawing.Size(258, 20);
+            this.txtPackFileSystem.TabIndex = 6;
+            // 
+            // txtPackFileVersion
+            // 
+            this.txtPackFileVersion.Location = new System.Drawing.Point(72, 12);
+            this.txtPackFileVersion.Name = "txtPackFileVersion";
+            this.txtPackFileVersion.Size = new System.Drawing.Size(101, 20);
+            this.txtPackFileVersion.TabIndex = 5;
             // 
             // label7
             // 
@@ -167,40 +170,41 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Version:";
             // 
-            // txtPackFileVersion
+            // label6
             // 
-            this.txtPackFileVersion.Location = new System.Drawing.Point(72, 12);
-            this.txtPackFileVersion.Name = "txtPackFileVersion";
-            this.txtPackFileVersion.Size = new System.Drawing.Size(101, 20);
-            this.txtPackFileVersion.TabIndex = 5;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "UUID:";
             // 
-            // txtPackFileSystem
+            // label5
             // 
-            this.txtPackFileSystem.Location = new System.Drawing.Point(72, 35);
-            this.txtPackFileSystem.Name = "txtPackFileSystem";
-            this.txtPackFileSystem.Size = new System.Drawing.Size(258, 20);
-            this.txtPackFileSystem.TabIndex = 6;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "File System:";
             // 
-            // txtPackPath
+            // label4
             // 
-            this.txtPackPath.Location = new System.Drawing.Point(73, 61);
-            this.txtPackPath.Name = "txtPackPath";
-            this.txtPackPath.Size = new System.Drawing.Size(257, 20);
-            this.txtPackPath.TabIndex = 7;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Path:";
             // 
-            // txtPackUUID
+            // label3
             // 
-            this.txtPackUUID.Location = new System.Drawing.Point(73, 87);
-            this.txtPackUUID.Name = "txtPackUUID";
-            this.txtPackUUID.Size = new System.Drawing.Size(257, 20);
-            this.txtPackUUID.TabIndex = 8;
-            // 
-            // txtPackVersion
-            // 
-            this.txtPackVersion.Location = new System.Drawing.Point(73, 113);
-            this.txtPackVersion.Name = "txtPackVersion";
-            this.txtPackVersion.Size = new System.Drawing.Size(100, 20);
-            this.txtPackVersion.TabIndex = 9;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "File Version:";
             // 
             // panelPlayer
             // 
@@ -214,14 +218,29 @@
             this.panelPlayer.Size = new System.Drawing.Size(333, 145);
             this.panelPlayer.TabIndex = 2;
             // 
-            // label8
+            // chkPlayerIgnorePlayerLimit
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Name:";
+            this.chkPlayerIgnorePlayerLimit.AutoSize = true;
+            this.chkPlayerIgnorePlayerLimit.Location = new System.Drawing.Point(56, 55);
+            this.chkPlayerIgnorePlayerLimit.Name = "chkPlayerIgnorePlayerLimit";
+            this.chkPlayerIgnorePlayerLimit.Size = new System.Drawing.Size(117, 17);
+            this.chkPlayerIgnorePlayerLimit.TabIndex = 5;
+            this.chkPlayerIgnorePlayerLimit.Text = "Ignores Player Limit";
+            this.chkPlayerIgnorePlayerLimit.UseVisualStyleBackColor = true;
+            // 
+            // txtPlayerXUID
+            // 
+            this.txtPlayerXUID.Location = new System.Drawing.Point(56, 29);
+            this.txtPlayerXUID.Name = "txtPlayerXUID";
+            this.txtPlayerXUID.Size = new System.Drawing.Size(274, 20);
+            this.txtPlayerXUID.TabIndex = 4;
+            // 
+            // txtPlayerName
+            // 
+            this.txtPlayerName.Location = new System.Drawing.Point(56, 3);
+            this.txtPlayerName.Name = "txtPlayerName";
+            this.txtPlayerName.Size = new System.Drawing.Size(274, 20);
+            this.txtPlayerName.TabIndex = 3;
             // 
             // label9
             // 
@@ -232,29 +251,14 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "XUID:";
             // 
-            // txtPlayerName
+            // label8
             // 
-            this.txtPlayerName.Location = new System.Drawing.Point(56, 3);
-            this.txtPlayerName.Name = "txtPlayerName";
-            this.txtPlayerName.Size = new System.Drawing.Size(274, 20);
-            this.txtPlayerName.TabIndex = 3;
-            // 
-            // txtPlayerXUID
-            // 
-            this.txtPlayerXUID.Location = new System.Drawing.Point(56, 29);
-            this.txtPlayerXUID.Name = "txtPlayerXUID";
-            this.txtPlayerXUID.Size = new System.Drawing.Size(274, 20);
-            this.txtPlayerXUID.TabIndex = 4;
-            // 
-            // chkPlayerIgnorePlayerLimit
-            // 
-            this.chkPlayerIgnorePlayerLimit.AutoSize = true;
-            this.chkPlayerIgnorePlayerLimit.Location = new System.Drawing.Point(56, 55);
-            this.chkPlayerIgnorePlayerLimit.Name = "chkPlayerIgnorePlayerLimit";
-            this.chkPlayerIgnorePlayerLimit.Size = new System.Drawing.Size(117, 17);
-            this.chkPlayerIgnorePlayerLimit.TabIndex = 5;
-            this.chkPlayerIgnorePlayerLimit.Text = "Ignores Player Limit";
-            this.chkPlayerIgnorePlayerLimit.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Name:";
             // 
             // btnOK
             // 
@@ -279,6 +283,22 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(27, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Name:";
+            // 
+            // txtPermissionName
+            // 
+            this.txtPermissionName.Location = new System.Drawing.Point(69, 12);
+            this.txtPermissionName.Name = "txtPermissionName";
+            this.txtPermissionName.Size = new System.Drawing.Size(261, 20);
+            this.txtPermissionName.TabIndex = 6;
             // 
             // dlgEdit
             // 
@@ -329,5 +349,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtPermissionName;
+        private System.Windows.Forms.Label label10;
     }
 }
