@@ -27,6 +27,8 @@ namespace Minecraft_Server_Launcher
         public Form1()
         {
             InitializeComponent();
+            ServerUpdate.UpdateServer(WriteServerOutput);
+
             dt = new DataTable();
             dt.Columns.Add("name", typeof(string));
             dt.Columns.Add("permission", typeof(string));

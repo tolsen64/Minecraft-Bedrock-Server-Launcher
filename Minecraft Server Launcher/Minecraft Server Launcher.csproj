@@ -66,6 +66,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="ServerUpdate.cs" />
     <EmbeddedResource Include="dlgEdit.resx">
       <DependentUpon>dlgEdit.cs</DependentUpon>
     </EmbeddedResource>
