@@ -5,4 +5,4 @@ This is a work in progress.  It is now functional but still have lots of stuff t
 
 ![](MinecraftServerLauncher.png)
 
-![Hit Counter](http://theboycot.com:8080/hc?id=GitHub.MinecraftBedrockServerLauncher "My Stupid Hit Counter!")
+![Hit Counter](http://tolsen64.com:8081/api/hc/GitHub.MinecraftBedrockServerLauncher "My Stupid Hit Counter!")
